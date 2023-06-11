@@ -1159,7 +1159,7 @@ blockquote.blockquote .blockquote-footer {
   right: 0;
   bottom: 0;
   z-index: 99999;
-  background: #33db59;
+  background: rgb(51 219 89 / 15%);
   display: flex;
   align-items: center;
   justify-content: center;
