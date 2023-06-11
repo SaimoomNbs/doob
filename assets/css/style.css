@@ -7008,6 +7008,10 @@ body.dark-mode .appHeader {
   border-bottom-color: #2d1f3b;
 }
 
+body.dark-mode .appHeader .left .headerButton{
+  color: #fff !important;
+}
+
 body.dark-mode .appHeader:before {
   background: #161129;
 }
@@ -7119,9 +7123,17 @@ body.dark-mode .listview-title {
 
 body.dark-mode .listview {
   color: #fff;
-  background: #161129;
+  /* background: #161129; */
+  background: #030108;
   border-top-color: #2d1f3b;
   border-bottom-color: #2d1f3b;
+}
+body.dark-mode .image-listview > li {
+  padding: 0;
+  min-height: auto;
+  margin-bottom: 15px;
+  background: #161129;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.09);
 }
 
 body.dark-mode .listview .text-muted {
