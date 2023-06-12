@@ -1,13 +1,16 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#33db59">
     <title>Doob :: Memberships</title>
     <link rel="icon" type="image/png" href="assets/img/logo.svg.svg" sizes="32x32">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo.svg.svg">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <!-- loader -->
     <div id="loader">
@@ -35,17 +38,47 @@
     <div id="appCapsule">
         <div class="section mt-2">
             <div class="row">
-                <div class="col-12 mt-2 text-center">
-                    <img src="assets/img/id-card.png" alt="" class="imaged w160">
-                    <h2>No Memberships...</h2>  
+                <div class="col-12 mt-2">
+                    <ul class="listview image-listview media inset mb-2">
+                        <li>
+                            <a href="doob-qr-register.html" class="item">
+                                <div class="imageWrapper">
+                                    <ion-icon name="qr-code-outline" style="font-size:55px;"></ion-icon>
+                                </div>
+                                <div class="in">
+                                    <div>
+                                        Scan QR
+                                        <div class="text-muted">Scan Qr code when advised by club</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="doob-pre-register.html" class="item">
+                                <div class="imageWrapper">
+                                    <ion-icon name="calendar-number-outline" style="font-size:55px;"></ion-icon>
+                                </div>
+                                <div class="in">
+                                    <div>
+                                        Pre-Register
+                                        <div class="text-muted">Enter a club pre-register code to start registration
+                                            process</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 mt-3 text-center">
+                    <a href="#" class="headerButton goBack">
+                        <button class="btn btn-white">
+                            <ion-icon name="arrow-back-outline"></ion-icon>
+                            <h2 class="pt-1">Return</h2>
+                        </button>
+                    </a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 mt-5 text-center">
-                    <a href="doob-membership-confirm.html" class="btn btn-lg btn-primary">Add Memberships <ion-icon name="add-outline"></ion-icon></a>  
-                </div>
-            </div>
-        </div>  
+        </div>
     </div>
     <!-- * App Capsule -->
     <!-- App Bottom Menu -->
@@ -270,4 +303,5 @@
     <!-- Base Js File -->
     <script src="assets/js/base.js"></script>
 </body>
+
 </html>
