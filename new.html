@@ -1,51 +1,88 @@
 <style>
-    #refreshContainer {
-        overflow-y: auto;
-        height: 100%;
-        touch-action: pan-y;
+    @import url('https://fonts.googleapis.com/css?family=Nunito:200,400,800');
+
+    * {
+        color: inherit;
     }
 
-    #refreshContent {
-        transition: transform 0.3s ease-out;
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+
+        color: white;
+        background: #78909C;
+        font-family: 'Nunito', sans-serif;
+        font-size: 1.1em;
+        font-weight: 400;
+
+        .wrap {
+            max-width: 800px;
+            padding: 10px 20px;
+            margin: 0 auto;
+        }
+
+        header {
+            font-weight: 800;
+        }
+
+        header,
+        main {
+            font-size: 200%;
+        }
+
+        main {
+            flex: 1;
+            text-align: center;
+            padding: 25px 0;
+        }
+
+        header,
+        footer,
+        .ptr--ptr {
+            background: #607D8B !important;
+        }
+
+        .ptr--ptr {
+            box-shadow: none !important;
+
+            .ptr--icon,
+            .ptr--text {
+                color: white !important;
+            }
+        }
     }
 </style>
-<div id="refreshContainer">
-    <div id="refreshContent">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and 
-            more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    </div>
-</div>
+
+<body>
+    <header>
+        <div class="wrap">
+            Swipe down to refresh the date
+        </div>
+    </header>
+    <main>
+        <div class="wrap">
+            <span id="date">Demo</span>
+        </div>
+    </main>
+    <footer>
+        <div class="wrap">
+            Made with <a href="https://www.boxfactura.com/pulltorefresh.js/" target="_blank">pulltorefresh.js</h1>
+        </div>
+    </footer>
+</body>
 <script>
-    const refreshContainer = document.getElementById('refreshContainer');
-const refreshContent = document.getElementById('refreshContent');
-let startY = 0;
-let currentY = 0;
+    PullToRefresh.init({
+        mainElement: 'main',
+        onRefresh: function () { setTime() }
+    });
 
-refreshContainer.addEventListener('touchstart', handleTouchStart, false);
-refreshContainer.addEventListener('touchmove', handleTouchMove, false);
-refreshContainer.addEventListener('touchend', handleTouchEnd, false);
-
-function handleTouchStart(event) {
-  startY = event.touches[0].clientY;
-}
-
-function handleTouchMove(event) {
-  if (refreshContainer.scrollTop === 0) {
-    event.preventDefault();
-    currentY = event.touches[0].clientY - startY;
-    refreshContent.style.transform = `translateY(${currentY}px)`;
-
-    if (currentY >= 50) {
-      // User has pulled down enough, trigger page reload
-      location.reload();
+    function setTime() {
+        document.getElementById('date').innerHTML = new Date().toLocaleString();
     }
-  }
-}
 
-function handleTouchEnd(event) {
-  refreshContent.style.transform = 'translateY(0)';
-  startY = 0;
-  currentY = 0;
-}
-
+    setTime();
+    TouchEmulator();
 </script>
