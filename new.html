@@ -12,35 +12,35 @@
 </head>
 
 <body>
-    <div class="container" draggable="true" >
+    <div class="container" draggable="true" ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)" ontouchend="handleTouchEnd(event)">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, laudantium? Sapiente consectetur laboriosam
         accusamus amet error porro eum voluptates quae eius? Expedita molestiae alias minima cupiditate amet voluptatem
         numquam maxime!
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var container = document.querySelector('.container');
-            var initialY = 0;
+        var container = document.querySelector('.container');
+        var initialY = 0;
 
-            container.addEventListener('dragstart', function (e) {
-                initialY = e.clientY;
-            });
-            container.addEventListener('drag', function (e) {
-                var deltaY = e.clientY - initialY;
-                if (deltaY > 110) {
-                    deltaY = 110; // Limit the drag to 110 pixels
-                }
-                container.style.transform = 'translateY(' + deltaY + 'px)';
-            });
-            container.addEventListener('dragend', function (e) {
-                container.style.transform = '';
-                var deltaY = e.clientY - initialY;
-                if (deltaY > 100) {
-                    location.reload();
-                }
-            });
-        });
+        function handleTouchStart(e) {
+            initialY = e.touches[0].clientY;
+        }
+
+        function handleTouchMove(e) {
+            var deltaY = e.touches[0].clientY - initialY;
+            if (deltaY > 110) {
+                deltaY = 110; // Limit the drag to 110 pixels
+            }
+            container.style.transform = 'translateY(' + deltaY + 'px)';
+        }
+
+        function handleTouchEnd(e) {
+            container.style.transform = '';
+            var deltaY = e.changedTouches[0].clientY - initialY;
+            if (deltaY > 100) {
+                location.reload();
+            }
+        }
     </script>
 </body>
 
