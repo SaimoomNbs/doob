@@ -1,88 +1,47 @@
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Nunito:200,400,800');
+<!DOCTYPE html>
+<html lang="en">
 
-    * {
-        color: inherit;
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        min-height: 100vh;
-        flex-direction: column;
-
-        color: white;
-        background: #78909C;
-        font-family: 'Nunito', sans-serif;
-        font-size: 1.1em;
-        font-weight: 400;
-
-        .wrap {
-            max-width: 800px;
-            padding: 10px 20px;
-            margin: 0 auto;
+<head>
+    <style>
+        .container {
+            height: 100%;
+            width: 100%;
+            background: rgb(235, 156, 156);
         }
-
-        header {
-            font-weight: 800;
-        }
-
-        header,
-        main {
-            font-size: 200%;
-        }
-
-        main {
-            flex: 1;
-            text-align: center;
-            padding: 25px 0;
-        }
-
-        header,
-        footer,
-        .ptr--ptr {
-            background: #607D8B !important;
-        }
-
-        .ptr--ptr {
-            box-shadow: none !important;
-
-            .ptr--icon,
-            .ptr--text {
-                color: white !important;
-            }
-        }
-    }
-</style>
+    </style>
+</head>
 
 <body>
-    <header>
-        <div class="wrap">
-            Swipe down to refresh the date
-        </div>
-    </header>
-    <main>
-        <div class="wrap">
-            <span id="date">Demo</span>
-        </div>
-    </main>
-    <footer>
-        <div class="wrap">
-            Made with <a href="https://www.boxfactura.com/pulltorefresh.js/" target="_blank">pulltorefresh.js</h1>
-        </div>
-    </footer>
+    <div class="container" draggable="true" >
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, laudantium? Sapiente consectetur laboriosam
+        accusamus amet error porro eum voluptates quae eius? Expedita molestiae alias minima cupiditate amet voluptatem
+        numquam maxime!
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var container = document.querySelector('.container');
+            var initialY = 0;
+
+            container.addEventListener('dragstart', function (e) {
+                initialY = e.clientY;
+            });
+            container.addEventListener('drag', function (e) {
+                var deltaY = e.clientY - initialY;
+                if (deltaY > 110) {
+                    deltaY = 110; // Limit the drag to 110 pixels
+                }
+                container.style.transform = 'translateY(' + deltaY + 'px)';
+            });
+            container.addEventListener('dragend', function (e) {
+                container.style.transform = '';
+                var deltaY = e.clientY - initialY;
+                if (deltaY > 100) {
+                    location.reload();
+                }
+            });
+        });
+    </script>
 </body>
-<script>
-    PullToRefresh.init({
-        mainElement: 'main',
-        onRefresh: function () { setTime() }
-    });
 
-    function setTime() {
-        document.getElementById('date').innerHTML = new Date().toLocaleString();
-    }
-
-    setTime();
-    TouchEmulator();
-</script>
+</html>
