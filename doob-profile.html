@@ -35,7 +35,7 @@
     </div>
     <!-- * App Header -->
     <!-- App Capsule -->
-    <div id="appCapsule">
+    <div id="appCapsule" class="appBody" draggable="true" ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)" ontouchend="handleTouchEnd(event)">
         <div class="section mt-3 text-center">
             <div class="avatar-section">
                 <a href="#" class="shadow-sm" style="border: 2px #c3ebcc solid;border-radius: 50%;">
@@ -318,6 +318,30 @@
     <script src="assets/js/plugins/splide/splide.min.js"></script>
     <!-- Base Js File -->
     <script src="assets/js/base.js"></script>
+    <script>
+        var container = document.querySelector('.appBody');
+        var initialY = 0;
+
+        function handleTouchStart(e) {
+            initialY = e.touches[0].clientY;
+        }
+
+        function handleTouchMove(e) {
+            var deltaY = e.touches[0].clientY - initialY;
+            if (deltaY > 110) {
+                deltaY = 110; // Limit the drag to 110 pixels
+            }
+            container.style.transform = 'translateY(' + deltaY + 'px)';
+        }
+
+        function handleTouchEnd(e) {
+            container.style.transform = '';
+            var deltaY = e.changedTouches[0].clientY - initialY;
+            if (deltaY > 100) {
+                location.reload();
+            }
+        }
+    </script>
 </body>
 
 </html>
