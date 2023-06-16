@@ -7966,3 +7966,15 @@ body.dark-mode.rtl-mode
   border-right: 0;
   border-left-color: #2d1f3b;
 }
+.toggle {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.fa-moon {
+  color: #5b5b5b;
+}
+
+.fa-sun {
+  color: #ffc62b;
+}

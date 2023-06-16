@@ -57,7 +57,7 @@ const Finapp = {
 //-----------------------------------------------------------------------
 var pageBody = document.querySelector("body");
 var appSidebar = document.getElementById("sidebarPanel")
-var loader =  document.getElementById('loader');
+var loader = document.getElementById('loader');
 //-----------------------------------------------------------------------
 
 
@@ -561,6 +561,37 @@ switchDarkMode.forEach(function (el) {
         }
     })
 })
+
+
+var pageBody = document.body;
+var icon = document.getElementById('icon');
+
+function toggleDarkMode() {
+    if (icon.classList.contains('fa-moon')) {
+        pageBody.classList.add("dark-mode");
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        icon.setAttribute('name', 'sunny-outline');
+        localStorage.setItem("FinappDarkmode", "1");
+    } else {
+        pageBody.classList.remove("dark-mode");
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        icon.setAttribute('name', 'moon-outline');
+        localStorage.setItem("FinappDarkmode", "0");
+    }
+}
+
+// Load initial dark mode state
+var darkmodeCheck = localStorage.getItem("FinappDarkmode");
+if (darkmodeCheck === "1") {
+    pageBody.classList.add("dark-mode");
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+    icon.setAttribute('name', 'sunny-outline');
+} else {
+    icon.classList.add('fa-moon');
+}
 //-----------------------------------------------------------------------
 
 

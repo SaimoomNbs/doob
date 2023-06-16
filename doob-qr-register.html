@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#33db59">
+    
     <title>Doob :: Memberships</title>
     <link rel="icon" type="image/png" href="assets/img/logo.svg.svg" sizes="32x32">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo.svg.svg">
@@ -14,7 +14,7 @@
 <body>
     <!-- loader -->
     <div id="loader">
-        <img src="assets/img/logo-tr.png" alt="icon" class="loading-icon">
+        <!-- <img src="assets/img/logo-tr.png" alt="icon" class="loading-icon"> -->
     </div>
     <!-- * loader -->
     <!-- App Header -->
@@ -28,8 +28,10 @@
             My Memberships
         </div>
         <div class="right">
-            <a href="doob-settings.html" class="headerButton">
-                <img src="assets/img/logo-tr.png" alt="image" class="imaged w32">
+            <div class="toggle" onclick="toggleDarkMode()">
+                <ion-icon id="icon" name="moon-outline" class="icon fa-moon"></ion-icon>
+            </div>
+                <!-- <img src="assets/img/logo-tr.png" alt="image" class="imaged w32"> -->
             </a>
         </div>
     </div>
