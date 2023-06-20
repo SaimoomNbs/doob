@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-    
+
     <title>Doob :: Coin</title>
     <link rel="icon" type="image/png" href="assets/img/logo.svg.svg" sizes="32x32">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/logo.svg.svg">
@@ -31,18 +31,84 @@
             <div class="toggle" onclick="toggleDarkMode()">
                 <ion-icon id="icon" name="moon-outline" class="icon fa-moon"></ion-icon>
             </div>
-                <!-- <img src="assets/img/logo-tr.png" alt="image" class="imaged w32"> -->
+            <!-- <img src="assets/img/logo-tr.png" alt="image" class="imaged w32"> -->
             </a>
         </div>
     </div>
     <!-- * App Header -->
     <!-- App Capsule -->
-    <div id="appCapsule" class="appBody" draggable="true" ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)" ontouchend="handleTouchEnd(event)">
+    <div id="appCapsule" class="appBody" draggable="true" ontouchstart="handleTouchStart(event)"
+        ontouchmove="handleTouchMove(event)" ontouchend="handleTouchEnd(event)">
         <div class="section mt-2">
             <div class="row">
                 <div class="col-12 text-center">
-                    <ion-icon name="cash-outline" class="text-dark" style="font-size:120px;"></ion-icon>
+                    <!-- <ion-icon name="cash-outline" class="text-dark" style="font-size:120px;"></ion-icon> -->
+                    <img src="assets/img/coins.png" alt="">
                 </div>
+                <div class="col-12 my-3 text-center">
+                    <div class="card">
+                        <div class="card-body" style="padding:15px;">
+                            <h3 style="font-size: 50px;">150$</h3>
+                            <h4>Balance</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 text-center">
+                    <div class="card">
+                        <div class="card-body" style="padding:15px;">
+                            <span class="badge badge-light" style="font-size: 20px;margin-bottom: 10px;">90$</span>
+                            <h3 style="margin:0px 0px 0px 8px;">Send</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 text-center">
+                    <div class="card">
+                        <div class="card-body" style="padding:15px;">
+                            <span class="badge badge-light" style="font-size: 20px;margin-bottom: 10px;">120$</span>
+                            <h3 style="margin:0px 0px 0px 8px;">Received</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section mt-2">
+            <div class="section-title">Transaction History</div>
+            <div class="card mb-2">
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">User ID</th>
+                                <th scope="col">Status</th>
+                                <th scope="col" class="text-end">Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">John</th>
+                                <td><img src="assets/img/send.png" alt="" class="imaged w16" > Send</td>
+                                <td class="text-end">$ 509.40</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mark</th>
+                                <td><img src="assets/img/receive.png" alt="" class="imaged w16" > Received</td>
+                                <td class="text-end">$ 29.00</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Jane</th>
+                                <td><img src="assets/img/receive.png" alt="" class="imaged w16" > Received</td>
+                                <td class="text-end">$ 50.80</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Adam</th>
+                                <td><img src="assets/img/send.png" alt="" class="imaged w16" > Send</td>
+                                <td class="text-end">$ 72.50</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
     </div>
